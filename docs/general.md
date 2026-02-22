@@ -19,7 +19,7 @@ first_name  |   role_name   |   user_id fk  |   user_id fk  |
 Last_name   |               |   title       |   post_id fk  |
 UserName    |               |   content     |   content     |
 Password    |               |   is_published|   created_at  |
-role Fk --->|               |   created_at  |   updated_at  |
+role Fk     |               |   created_at  |   updated_at  |
             |               |   published_at|               |
             |               |   updated_at  |               |
 #### queries

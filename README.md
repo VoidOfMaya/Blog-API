@@ -35,7 +35,7 @@ The API handles authentication, authorization, validation, and data persistence.
 - PostgreSQL database integration via Prisma
 
 ## development noter:
- - #### [API-OVerview](./docs/general.md);
+ - #### [API-OVerview](./docs/general.md)
  - #### [layer-based-plan/tasks](./docs/implementation-plan.md)  
 ### tech stack for this project(PERN)
 -   PostgreSQL

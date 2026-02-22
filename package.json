@@ -1,4 +1,26 @@
 {
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "A RESTful API built as the backend service for a 3-part full-stack blog application.",
+  "main": "app.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VoidOfMaya/Blog-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VoidOfMaya/Blog-API/issues"
+  },
+  "homepage": "https://github.com/VoidOfMaya/Blog-API#readme",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "connect-flash": "^0.1.1",
