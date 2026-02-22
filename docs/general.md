@@ -12,7 +12,7 @@
 - 2.blogApp/authors-dashboard
 
 ## database:
-User        |   Role        |   Poste       |   Comment     |
+User        |   Role        |   Post        |   Comment     |
 ------------|---------------|---------------|---------------|
 id Pk       |   id  pk      |   id pk       |   id pk       |
 first_name  |   role_name   |   user_id fk  |   user_id fk  |
@@ -29,7 +29,7 @@ role Fk     |               |   created_at  |   updated_at  |
     - getUserByid
     - checkRole
     
-* postss:-
+* posts:-
     -  getAllPosts
     -  editPostById
     -  getOnlyPublishedPosts
@@ -43,7 +43,7 @@ role Fk     |               |   created_at  |   updated_at  |
 - vew only published posts
 - view post details
 - view comments
-- CAN NOT poat content(posts comments)
+- CAN NOT post content(posts comments)
 - CAN NOT login
 #### user   
 - can only access unprotected and user routes
@@ -68,14 +68,14 @@ role Fk     |               |   created_at  |   updated_at  |
 ## Routes
 
 #### (unauthenticated guests)
-Middleware infocement: none
+Middleware inforcement: none
 - GET(/api/posts)
 - GET(/api/posts/:id)
 - POST(api/auth/login)
 - POST(/api/auth/register)
 
 #### (authenticated normal user)
-Middleware infocement: authorizationMiddleware
+Middleware inforcement: authorizationMiddleware
 - GET(/api/users/me)
 - GET(/api/posts)
 - GET(/api/posts/:id)
@@ -83,8 +83,8 @@ Middleware infocement: authorizationMiddleware
 - PUT(/api/comments/:id)
 - DELETE(/api/comments/:id)
 
-#### (auhtenticated Author users)
-Middleware infocement: RoleauthorizationMiddleware
+#### (authenticated Author users)
+Middleware inforcement: RoleauthorizationMiddleware
 - GET(/api/posts)
 - PUT(/api/posts/:id)
 - PUT(/api/posts/:id/publish)

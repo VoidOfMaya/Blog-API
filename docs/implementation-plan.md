@@ -18,7 +18,7 @@ architecture tasks based on layers:
     - [] Run intial migration
     - [] seed roles (user, author)
 
-## Business logic (data querying)
+## Services
 - []user Services
     - [] createUser
     - [] getUserById

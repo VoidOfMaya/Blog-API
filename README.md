@@ -16,6 +16,11 @@ Frontend (Author/Admin)
       Blog API
         ↓
     PostgreSQL Database
+    
+graph TD
+    ConsumerFrontend --> BlogAPI
+    AuthorFrontend --> BlogAPI
+    BlogAPI --> PostgreSQL
 
 The API handles authentication, authorization, validation, and data persistence.
 
@@ -36,7 +41,7 @@ The API handles authentication, authorization, validation, and data persistence.
 
 ## development noter:
  - #### [API-OVerview](./docs/general.md)
- - #### [layer-based-plan/tasks](./docs/implementation-plan.md)  
+ - #### [implementation-plan](./docs/implementation-plan.md)  
 ### tech stack for this project(PERN)
 -   PostgreSQL
 -   Express
@@ -50,8 +55,6 @@ The API handles authentication, authorization, validation, and data persistence.
 - @prisma/adapter-pg
 - @prisma/client
 - bcryptjs
-- connect-flash
-- connect-pg-simple
 - express-validator
 - curl/postman
 
