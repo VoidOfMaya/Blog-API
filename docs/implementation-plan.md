@@ -1,24 +1,93 @@
 
-Turn architecture into layers:
+architecture tasks based on layers:
+## Setup
+- [] Initialize Express server
+- [] Setup JWT strategy (Passport)
+- [] Setup Prisma (init + schema)
+- [] Create feature-based folder structure
+- [] Configure environment variables
 
-## Phase 1 — Setup
-Express server
-Prisma config
-Environment variables
 
-## Phase 2 — Database
-Create models
-Migrate
-Seed roles
+## Database(prismaORM)
+- []Create models
+    - [] User
+    - [] Role
+    - [] Post
+    - [] Comment
+- []Migrate
+    - [] Run intial migration
+    - [] seed roles (user, author)
 
-## Phase 3 — Auth
-Register
-Login
-JWT middleware
+## Business logic (data querying)
+- []user Services
+    - [] createUser
+    - [] getUserById
+    - [] getCurrentUser
 
-## Phase 4 — Posts
-CRUD routes
-Validation
-Authorization middleware
+- []post services:-
+    - []getPublishedPosts
+    - []getAllPosts(author)
+    - []getPostById(with comments)
+    - []createPost
+    - []updatePost
+    - []togglePublishedStatus
+    - []deletePost
 
-## Phase 5 — Comments
+- [] comment services:-
+    - []createComment
+    - []updateComment
+    - []deleteComment
+
+## Authentication
+- [] Register logic (hash password)
+- [] Login logic (verify password)
+- [] JWT generation
+- [] JWT validation middleware
+
+## Input validation
+- [] Login validation
+- [] Register validation
+- [] Post validation
+- [] Comment validation
+
+## Error handelling
+- []standradize sending error messages with {code: "error_code", err: "relevant error message"}
+- [] 400 validation error
+- [] 401 unauthorized
+- [] 403 forbidden
+- [] 404 not foind 
+- [] 500 server error
+- [] global error middleware
+
+## Routers
+- [] authRouter
+- [] usersRouter
+- [] postsRouter
+- [] commentsRouter
+## Controllers
+- [] authController
+    - [] registerUser
+    - [] loginUser
+
+- [] usersController
+    - [] getCurrentUser
+
+- [] postsController
+    - [] getAllPosts
+    - [] getPostByid
+    - [] createPost
+    - [] togglePublishStatus
+    - [] updatePost
+    - [] deletePost
+
+- [] commentsController
+    - [] createComment
+    - [] updateComment
+    - [] deleteComment
+
+## Middleware
+- [] isAuthenticatedjwt cerfication()
+- [] isAuthor(role check)
+- [] validation Middleware
+- [] centralized error handler
+
