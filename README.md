@@ -9,18 +9,7 @@ This API serves two separate frontend clients:
 ## Architecture
 
 This project follows a decoupled architecture:
-
-Frontend (Consumer)
-Frontend (Author/Admin)
-        ↓
-      Blog API
-        ↓
-    PostgreSQL Database
-    
-graph TD
-    ConsumerFrontend --> BlogAPI
-    AuthorFrontend --> BlogAPI
-    BlogAPI --> PostgreSQL
+[simple-diagram](./docs/BlogAPI%20Data%20Flow%20Model-2026-02-22-140247.png)
 
 The API handles authentication, authorization, validation, and data persistence.
 
