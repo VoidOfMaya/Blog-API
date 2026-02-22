@@ -22,7 +22,7 @@ Password    |               |   is_published|   created_at  |
 role Fk     |               |   created_at  |   updated_at  |
             |               |   published_at|               |
             |               |   updated_at  |               |
-[visual-relations](./blog-api-data-struct.png)
+![visual-relations](./blog-api-data-struct.png)
 #### queries
 --- seed Role with user and author roles
 * users:-

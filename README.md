@@ -9,7 +9,7 @@ This API serves two separate frontend clients:
 ## Architecture
 
 This project follows a decoupled architecture:
-[simple-diagram](./docs/BlogAPI%20Data%20Flow%20Model-2026-02-22-140247.png)
+![simple-diagram](./docs/BlogAPI%20Data%20Flow%20Model-2026-02-22-140247.png)
 
 The API handles authentication, authorization, validation, and data persistence.
 
