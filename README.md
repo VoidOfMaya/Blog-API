@@ -5,6 +5,7 @@ This API serves two separate frontend clients:
 - A public-facing blog application (consumer)
 - An author/admin dashboard
 
+(note: folder structure is feature based/scoped)
 ## Architecture
 
 This project follows a decoupled architecture:
@@ -33,12 +34,14 @@ The API handles authentication, authorization, validation, and data persistence.
 - Secure password hashing (bcrypt)
 - PostgreSQL database integration via Prisma
 
+## development noter:
+ - #### [API-OVerview](./docs/general.md);
+ - #### [layer-based-plan/tasks](./docs/implementation-plan.md)  
 ### tech stack for this project(PERN)
 -   PostgreSQL
 -   Express
 -   Node
 (React will be used for client facing applicaitons)
-
 ### tooling& dependancies:-
 - express
 - dotenv
@@ -50,6 +53,7 @@ The API handles authentication, authorization, validation, and data persistence.
 - connect-flash
 - connect-pg-simple
 - express-validator
+- curl/postman
 
 ## Related Project Requirement
 
