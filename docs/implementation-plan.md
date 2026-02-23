@@ -9,14 +9,14 @@ architecture tasks based on layers:
 
 
 ## Database(prismaORM)
-- []Create models
-    - [] User
-    - [] Role
-    - [] Post
-    - [] Comment
-- []Migrate
-    - [] Run intial migration
-    - [] seed roles (user, author)
+- [X]Create models
+    - [X] User
+    - [X] Role
+    - [X] Post
+    - [X] Comment
+- [X]Migrate
+    - [X] Run intial migration
+    - [X] seed roles (user, author)
 
 ## Services
 - []user Services
