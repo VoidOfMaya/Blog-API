@@ -1,6 +1,6 @@
 import { validationResult, matchedData } from "express-validator";
 import passport from "passport";
-import {registerUser} from './authServices.js';
+import {registerUser, login} from './authServices.js';
 
 async function createUser(req, res, next){
     //const errors = validationResult(req);
@@ -9,8 +9,12 @@ async function createUser(req, res, next){
     //    console.log({errors: errors.array()});
     //}
     //const data = matchedData(req);
-    const user = await registerUser(req.body);
-    res.json({user})
+    try{
+        await registerUser(req.body);        
+    }catch(err){
+        res.status(500).json({error: err})
+    }
+    res.status(201).json({message: "user registered successfully"});
 
 }
 async function logout(req, res, next) {
@@ -24,11 +28,20 @@ async function logout(req, res, next) {
     })
     
 }
-async function login(req, res) {
-    await passport.authenticate('local',{})
+async function userLogin(req, res) {
+    //requires input validation
+    try{
+        console.log('authcontroller: userLogin')
+        const result = await login(req.body)  
+        res.status(200).json({user: result});      
+    }catch(err){
+        console.log(err)
+        res.status(500).json({error: err})
+    }
+
 }
 export{
     createUser,
     logout,
-    login
+    userLogin
 }

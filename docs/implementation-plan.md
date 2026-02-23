@@ -39,9 +39,9 @@ architecture tasks based on layers:
     - []deleteComment
 
 ## Authentication
-- [pending] Register logic (hash password)
-- [pending] Login logic (verify password)
-- [] JWT generation
+- [X] Register logic (hash password)
+- [X] Login logic (verify password)
+- [X] JWT generation
 - [] JWT validation middleware
 
 ## Input validation
@@ -67,7 +67,7 @@ architecture tasks based on layers:
 ## Controllers
 - [pending] authController
     - [X] registerUser
-    - [pending] login
+    - [X] login
     - [pending] logout
 
 - [] usersController

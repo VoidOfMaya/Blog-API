@@ -1,7 +1,6 @@
 import express from 'express'
 import 'dotenv/config'
 import passport from 'passport';
-import { setPassport } from './auth/authMiddleware.js';
 import { authRouter } from './auth/authRouter.js';
 
 const app = express();
@@ -9,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-setPassport();
+
 app.use(passport.initialize());
 
 app.get('/',(req, res)=>{
