@@ -4,7 +4,7 @@ architecture tasks based on layers:
 - [X] Initialize Express server
 - [] Setup JWT strategy (Passport)
 - [X] Setup Prisma (init + schema)
-- [] Create feature-based folder structure
+- [X] Create feature-based folder structure
 - [] Configure environment variables
 
 
