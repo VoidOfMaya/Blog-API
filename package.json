@@ -7,7 +7,9 @@
   "directories": {
     "doc": "docs"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prisma": "^7.4.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,11 +24,14 @@
   },
   "homepage": "https://github.com/VoidOfMaya/Blog-API#readme",
   "dependencies": {
+    "@prisma/adapter-pg": "^7.4.1",
+    "@prisma/client": "^7.4.1",
     "bcryptjs": "^3.0.3",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "express-validator": "^7.3.1"
+    "express-validator": "^7.3.1",
+    "pg": "^8.18.0"
   }
 }
