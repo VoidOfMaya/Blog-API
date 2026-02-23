@@ -5,7 +5,7 @@ architecture tasks based on layers:
 - [] Setup JWT strategy (Passport)
 - [X] Setup Prisma (init + schema)
 - [X] Create feature-based folder structure
-- [] Configure environment variables
+- [X] Configure environment variables
 
 
 ## Database(prismaORM)
@@ -19,8 +19,8 @@ architecture tasks based on layers:
     - [X] seed roles (user, author)
 
 ## Services
-- []user Services
-    - [] createUser
+- [pending]user Services
+    - [X] createUser
     - [] getUserById
     - [] getCurrentUser
 
@@ -39,8 +39,8 @@ architecture tasks based on layers:
     - []deleteComment
 
 ## Authentication
-- [] Register logic (hash password)
-- [] Login logic (verify password)
+- [pending] Register logic (hash password)
+- [pending] Login logic (verify password)
 - [] JWT generation
 - [] JWT validation middleware
 
@@ -55,19 +55,20 @@ architecture tasks based on layers:
 - [] 400 validation error
 - [] 401 unauthorized
 - [] 403 forbidden
-- [] 404 not foind 
+- [] 404 not found 
 - [] 500 server error
 - [] global error middleware
 
 ## Routers
-- [] authRouter
+- [pending] authRouter
 - [] usersRouter
 - [] postsRouter
 - [] commentsRouter
 ## Controllers
-- [] authController
-    - [] registerUser
-    - [] loginUser
+- [pending] authController
+    - [X] registerUser
+    - [pending] login
+    - [pending] logout
 
 - [] usersController
     - [] getCurrentUser
