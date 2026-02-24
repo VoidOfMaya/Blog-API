@@ -21,8 +21,8 @@ architecture tasks based on layers:
 ## Services
 - [pending]user Services
     - [X] createUser
-    - [] getUserById
-    - [] getCurrentUser
+    - [X] getUserById
+    - [X] getCurrentUser
 
 - []post services:-
     - []getPublishedPosts
@@ -61,7 +61,7 @@ architecture tasks based on layers:
 
 ## Routers
 - [X] authRouter
-- [] usersRouter
+- [X] usersRouter
 - [] postsRouter
 - [] commentsRouter
 ## Controllers
@@ -70,9 +70,9 @@ architecture tasks based on layers:
     - [X] login
     - [-] logout(logout removes token stored in local storage, front ends responssibility )
 
-- [pending] usersController
+- [X] usersController
     - [X] getCurrentUser
-    - [] enableCreator
+    - [X] enableAuthorMode
 
 - [] postsController
     - [] getAllPosts
@@ -88,7 +88,7 @@ architecture tasks based on layers:
     - [] deleteComment
 
 ## Middleware
-- [] isAuthenticatedjwt cerfication()
+- [X] isAuthenticatedjwt cerfication()
 - [] isAuthor(role check)
 - [] validation Middleware
 - [] centralized error handler

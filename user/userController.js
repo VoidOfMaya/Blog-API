@@ -1,4 +1,4 @@
-import { getUser } from "./userServices.js";
+import { enableAuthorship, getUser } from "./userServices.js";
 
 async function getCurrentUser(req, res){
     try{
@@ -9,7 +9,16 @@ async function getCurrentUser(req, res){
         res.status(500).json({error: err});
     }
 }
+async function makeUserAnAuthor(req, res){
+    try{
+        const user = await enableAuthorship(req.user.id);
+        res.status(200).json({message: "User is now an author"})
+    }catch(err){
+        res.status(500).json({error: err})
+    }
+}
 
 export{
     getCurrentUser,
+    makeUserAnAuthor
 }

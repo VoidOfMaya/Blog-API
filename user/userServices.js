@@ -13,6 +13,18 @@ async function getUser(id){
     })
 }
 
+async function enableAuthorship(id){
+    await prisma.user.update({
+        where: {id},
+        data:{
+            role:{
+                connect:{name: 'author'}
+            }
+        }
+    })
+}
+
 export{
-    getUser
+    getUser,
+    enableAuthorship,
 }
