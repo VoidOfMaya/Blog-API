@@ -10,7 +10,7 @@ async function createUser(req, res, next){
     //}
     //const data = matchedData(req);
     try{
-        await registerUser(req.body);        
+        await registerUser(req.body);      
     }catch(err){
         res.status(500).json({error: err})
     }

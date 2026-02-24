@@ -6,21 +6,18 @@ import jwt from "jsonwebtoken";
 async function registerUser(data){   
  
     const role = await prisma.role.findUnique({where:{name: 'user'}})
-    if(!role) return //throw error here
+    if(!role) throw new Error({error: "no role found"})
     console.log("at atuhService: registerUser accessed! ")
-    const result = await prisma.user.create({
-                    data:{
-                        email: data.email,
-                        firstName: data.firstName,
-                        lastName: data.lastName,
-                        password: await bcrypt.hash(data.password, 10),
-                        role: {connect:{name: "user"}},
+    await prisma.user.create({
+        data:{
+            email: data.email,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            password: await bcrypt.hash(data.password, 10),
+            role: {connect:{name: "user"}},
 
-                    },
-                })
-        
-
-
+        },
+    })
 }
 async function login(data){
 
