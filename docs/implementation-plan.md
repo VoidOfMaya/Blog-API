@@ -70,8 +70,8 @@ architecture tasks based on layers:
     - [X] login
     - [-] logout(logout removes token stored in local storage, front ends responssibility )
 
-- [] usersController
-    - [] getCurrentUser
+- [pending] usersController
+    - [X] getCurrentUser
     - [] enableCreator
 
 - [] postsController
