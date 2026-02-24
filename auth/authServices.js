@@ -20,31 +20,27 @@ async function registerUser(data){
     })
 }
 async function login(data){
+    //sheck if user valid
+    console.log('auth service: login')
+    const {email, password} = data
+    const user = await prisma.user.findUnique({where: {email}});          
+    if(!user)throw new Error ("invalid credentials");
 
-    try{
-        //sheck if user valid
-        console.log('auth service: login')
-        const {email, password} = data
-        const user = await prisma.user.findUnique({where: {email}});          
-        if(!user)throw new Error ("invalid credentials");
-
-        const match = await bcrypt.compare(password, user.password);
-        if(!match)throw new Error ("invalid credentials");
-        //signing a jwt token
-        const token = jwt.sign(
-            {id: user.id, email: user.email},
-            process.env.JWT_KEY,
-            {expiresIn: '1h'}
-        )
-        return{user:{
-            id: user.id,
-            email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            roleId: user.roleId
-        }, token};
-    }catch(err) {throw new Error (err)}
-
+    const match = await bcrypt.compare(password, user.password);
+    if(!match)throw new Error ("invalid credentials");
+    //signing a jwt token
+    const token = jwt.sign(
+        {id: user.id, email: user.email},
+        process.env.JWT_KEY,
+        {expiresIn: '1h'}
+    )
+    return{user:{
+        id: user.id,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        roleId: user.roleId
+    }, token};
 }
 export{
     registerUser,
