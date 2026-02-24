@@ -12,12 +12,11 @@ app.use(express.urlencoded({extended: true}));
 midware.setupPassport();
 app.use(passport.initialize());
 
-app.get('/',(req, res)=>{
-    res.json({message: "hellow world!"});
-})
+app.use('/',pipe.indexRouter)
 app.use('/auth',pipe.authRouter);
 app.use('/user',midware.isAuthenticated, pipe.userRouter);
-app.use('/comment',midware.isAuthenticated,pipe.commentRouter);
+app.use('/post', pipe.postsRouter);
+app.use('/:postId/comment',pipe.commentRouter);
 
 
 

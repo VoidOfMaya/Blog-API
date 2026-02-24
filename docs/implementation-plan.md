@@ -19,15 +19,15 @@ architecture tasks based on layers:
     - [X] seed roles (user, author)
 
 ## Services
-- [pending]user Services
+- [X]user Services
     - [X] createUser
     - [X] getUserById
     - [X] getCurrentUser
 
-- []post services:-
-    - []getPublishedPosts
+- [pending]post services:-
+    - [X]getPublishedPostsPreview
     - []getAllPosts(author)
-    - []getPostById(with comments)
+    - [X]getPostById(with comments) 
     - []createPost
     - []updatePost
     - []togglePublishedStatus
@@ -60,10 +60,11 @@ architecture tasks based on layers:
 - [] global error middleware
 
 ## Routers
+- [X] indexRouter 
 - [X] authRouter
 - [X] usersRouter
-- [] postsRouter
-- [] commentsRouter
+- [pending] postsRouter
+- [pending] commentsRouter
 ## Controllers
 - [pending] authController
     - [X] registerUser
@@ -74,13 +75,13 @@ architecture tasks based on layers:
     - [X] getCurrentUser
     - [X] enableAuthorMode
 
-- [] postsController
-    - [] getAllPosts
-    - [] getPostByid
-    - [] createPost
-    - [] togglePublishStatus
-    - [] updatePost
-    - [] deletePost
+- [pending] postsController
+    - [X] getAllPosts
+    - [X] getPostByid
+    - [pending] createPost
+    - [pending] togglePublishStatus
+    - [pending] updatePost
+    - [pending] deletePost
 
 - [] commentsController
     - [] createComment
