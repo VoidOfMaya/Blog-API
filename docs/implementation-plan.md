@@ -2,7 +2,7 @@
 architecture tasks based on layers:
 ## Setup
 - [X] Initialize Express server
-- [] Setup JWT strategy (Passport)
+- [X] Setup JWT strategy (Passport)
 - [X] Setup Prisma (init + schema)
 - [X] Create feature-based folder structure
 - [X] Configure environment variables
@@ -42,7 +42,7 @@ architecture tasks based on layers:
 - [X] Register logic (hash password)
 - [X] Login logic (verify password)
 - [X] JWT generation
-- [] JWT validation middleware
+- [X] JWT validation middleware
 
 ## Input validation
 - [] Login validation
@@ -60,7 +60,7 @@ architecture tasks based on layers:
 - [] global error middleware
 
 ## Routers
-- [pending] authRouter
+- [X] authRouter
 - [] usersRouter
 - [] postsRouter
 - [] commentsRouter
@@ -68,7 +68,7 @@ architecture tasks based on layers:
 - [pending] authController
     - [X] registerUser
     - [X] login
-    - [pending] logout
+    - [-] logout(logout removes token stored in local storage, front ends responssibility )
 
 - [] usersController
     - [] getCurrentUser
