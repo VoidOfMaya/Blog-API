@@ -4,6 +4,7 @@ import passport from 'passport';
 import { authRouter } from './auth/authRouter.js';
 import { setupPassport } from './auth/authMiddleware.js';
 import { userRouter } from './user/userRouter.js';
+import { isAuthenticated } from './auth/authMiddleware.js'
 
 const app = express();
 //parse req string to json
@@ -17,7 +18,7 @@ app.get('/',(req, res)=>{
     res.json({message: "hellow world!"});
 })
 app.use('/auth',authRouter);
-app.use('/user', userRouter);
+app.use('/user',isAuthenticated, userRouter);
 
 
 

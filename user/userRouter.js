@@ -4,8 +4,8 @@ import { getCurrentUser, makeUserAnAuthor } from "./userController.js";
 
 const userRouter = Router();
 //todo: segregate data-flow based on roleId 
-userRouter.get('/',isAuthenticated,getCurrentUser)
-userRouter.put('/',isAuthenticated,makeUserAnAuthor)
+userRouter.get('/',getCurrentUser)
+userRouter.put('/',makeUserAnAuthor)
 
 export{
     userRouter
