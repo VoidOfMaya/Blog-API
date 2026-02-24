@@ -1,24 +1,23 @@
 import express from 'express'
 import 'dotenv/config'
 import passport from 'passport';
-import { authRouter } from './auth/authRouter.js';
-import { setupPassport } from './auth/authMiddleware.js';
-import { userRouter } from './user/userRouter.js';
-import { isAuthenticated } from './auth/authMiddleware.js'
+import { midware } from './features/middleWareOrchestrator.js';
+import {pipe} from './features/routerOrchestrator.js'
 
 const app = express();
 //parse req string to json
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-setupPassport();
+midware.setupPassport();
 app.use(passport.initialize());
 
 app.get('/',(req, res)=>{
     res.json({message: "hellow world!"});
 })
-app.use('/auth',authRouter);
-app.use('/user',isAuthenticated, userRouter);
+app.use('/auth',pipe.authRouter);
+app.use('/user',midware.isAuthenticated, pipe.userRouter);
+app.use('/comment',midware.isAuthenticated,pipe.commentRouter);
 
 
 

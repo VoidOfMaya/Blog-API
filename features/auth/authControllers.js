@@ -1,5 +1,4 @@
 import { validationResult, matchedData } from "express-validator";
-import passport from "passport";
 import {registerUser, login} from './authServices.js';
 
 async function createUser(req, res, next){

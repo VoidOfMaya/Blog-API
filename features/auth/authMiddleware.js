@@ -1,7 +1,7 @@
 
 import passport from 'passport';
 import {ExtractJwt as getJwt, Strategy as JWTStrategy} from 'passport-jwt';
-import {prisma} from '../lib/prisma.js';
+import {prisma} from '../../lib/prisma.js';
 import 'dotenv/config';
 
 function setupPassport(){

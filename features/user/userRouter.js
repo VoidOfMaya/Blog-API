@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { isAuthenticated } from "../auth/authMiddleware.js";
 import { getCurrentUser, makeUserAnAuthor } from "./userController.js";
 
 const userRouter = Router();
