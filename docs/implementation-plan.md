@@ -72,6 +72,7 @@ architecture tasks based on layers:
 
 - [] usersController
     - [] getCurrentUser
+    - [] enableCreator
 
 - [] postsController
     - [] getAllPosts

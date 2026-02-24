@@ -3,6 +3,7 @@ import 'dotenv/config'
 import passport from 'passport';
 import { authRouter } from './auth/authRouter.js';
 import { setupPassport } from './auth/authMiddleware.js';
+import { userRouter } from './user/userRouter.js';
 
 const app = express();
 //parse req string to json
@@ -15,7 +16,8 @@ app.use(passport.initialize());
 app.get('/',(req, res)=>{
     res.json({message: "hellow world!"});
 })
-app.use('/auth',authRouter)
+app.use('/auth',authRouter);
+app.use('/user', userRouter);
 
 
 
