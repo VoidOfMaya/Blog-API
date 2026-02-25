@@ -66,7 +66,7 @@ architecture tasks based on layers:
 - [X] postsRouter
 - [pending] commentsRouter
 ## Controllers
-- [pending] authController
+- [X] authController
     - [X] registerUser
     - [X] login
     - [-] logout(logout removes token stored in local storage, front ends responssibility )
@@ -90,7 +90,7 @@ architecture tasks based on layers:
 
 ## Middleware
 - [X] isAuthenticatedjwt cerfication()
-- [pending] isAuthor(role check)
+- [X] isAuthor(role check)
 - [] validation Middleware
 - [] centralized error handler
 

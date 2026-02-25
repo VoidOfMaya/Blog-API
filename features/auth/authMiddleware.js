@@ -22,9 +22,32 @@ function setupPassport(){
 }
 
 const isAuthenticated = passport.authenticate('jwt',{session: false});
+//this should be passed only after the is authenticated middleware
+async function isAuthor (req, res, next){
+    if(!req.user) return res.status(401).json({error: "Unauthorized"})
+    const {id} = req.user
+    try{
+        const user = await prisma.user.findUnique({
+            where: {id},
+            select:{
+                role: true
+            }
+        })
+        if(!user || !user.role) return res.status(403).json({error: 'User role not found'})
+        if(user.role.name === 'author'){
+            return next();
+        }else{
+            throw new Error('user not an author')
+        }
+    }catch(err){
+        next(err)
+    }        
+ 
+}
 
 export{
     setupPassport,
     isAuthenticated,
+    isAuthor,
 
 }
