@@ -7,7 +7,7 @@ import { Router } from "express";
 const indexRouter = Router();
 
 indexRouter.get('/', getPosts);
-indexRouter.get('/post/:id',getPostById);
+indexRouter.get('/:id',getPostById);
 
 export{
     indexRouter

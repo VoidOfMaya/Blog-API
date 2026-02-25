@@ -10,9 +10,11 @@ async function getPosts(req, res) {
 async function getPostById(req, res) {
     //requires validation for params.id
     try{
-        const post = await getPublishedPostById(req.param.id);
+        const {id} = req.params
+        const post = await getPublishedPostById(Number(id));
         res.status(200).json({post: post})
     }catch(err){
+        console.log(err);
         res.status(500).json({error: err})
     }
 }
