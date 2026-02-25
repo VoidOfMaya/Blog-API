@@ -1,20 +1,20 @@
-import { prisma } from "../../lib/prisma";
+import { prisma } from "../../lib/prisma.js";
 
 //createpost
-async function createpost(data) {
+async function createpostSevice(data) {
     await prisma.post.create({
-       data:{
-        title: data.title,
-        content: data.content,
-        author:{
-            connect:{id: data.id}
-        }
-       },
-        
+        data:{
+            title: data.title,
+            content: data.content,
+            author:{
+                connect:{id: data.id}
+            }
+        },
+                
     })
 }
 //publish post
-async function PublishPost(id){
+async function publishPostSevice(id){
     await prisma.post.update({
         where: {id},
         data:{
@@ -24,21 +24,28 @@ async function PublishPost(id){
     })
 }
 //edit post 
-async function editPost(id,data){
+async function editPostSevice(id,data){
+    const {title, content} = data
     const updateData={};
-    if(data.title !== undefined) updateData.title = title;
-    if(data.content !== undefined) updateData.content = content;
+    if(title !== '') updateData.title = title;
+    if(content !== '') updateData.content = content;
     await prisma.post.update({
         where: {id},
         data:{
-            updateData,
+            ...updateData,
             updatedAt: new Date()
         }
     })
 }
 //delete post 
-async function deletePost(id) {
+async function deletePostSevice(id) {
     await prisma.post.delete({
-        where:{id},
+        where:{id}
     });
+}
+export{
+    createpostSevice,
+    publishPostSevice,
+    editPostSevice,
+    deletePostSevice
 }
