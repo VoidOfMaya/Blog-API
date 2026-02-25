@@ -15,9 +15,10 @@ app.use(passport.initialize());
 app.use('/',pipe.indexRouter)
 app.use('/auth',pipe.authRouter);
 app.use('/user',midware.isAuthenticated, pipe.userRouter);
-app.use('/post',midware.isAuthenticated, pipe.postsRouter);
+app.use('/post',midware.isAuthenticated,midware.isAuthor, pipe.postsRouter);
 app.use('/:postId/comment',midware.isAuthenticated, pipe.commentRouter);
 
+//error handlers:
 
 
 
