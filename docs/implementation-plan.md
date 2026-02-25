@@ -45,10 +45,10 @@ architecture tasks based on layers:
 - [X] JWT validation middleware
 
 ## Input validation
-- [] Login validation
-- [] Register validation
+- [X] Login validation
+- [X] Register validation
 - [] Post validation
-- [] Comment validation
+- [X] Comment validation
 
 ## Error handelling
 - []standradize sending error messages with {code: "error_code", err: "relevant error message"}
@@ -64,7 +64,7 @@ architecture tasks based on layers:
 - [X] authRouter
 - [X] usersRouter
 - [X] postsRouter
-- [pending] commentsRouter
+- [X] commentsRouter
 ## Controllers
 - [X] authController
     - [X] registerUser
@@ -77,20 +77,20 @@ architecture tasks based on layers:
 
 - [X] postsController
     - [X] getAllPosts
-    - [X] getPostByid
+    - [X] getPostByid(and read related comments)
     - [X] createPost
     - [X] togglePublishStatus
     - [X] updatePost
     - [X] deletePost
 
-- [] commentsController
-    - [] createComment
-    - [] updateComment
-    - [] deleteComment
+- [X] commentsController
+    - [X] createComment
+    - [X] updateComment
+    - [X] deleteComment
 
 ## Middleware
 - [X] isAuthenticatedjwt cerfication()
 - [X] isAuthor(role check)
-- [] validation Middleware
+- [pending] validation Middleware
 - [] centralized error handler
 
