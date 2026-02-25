@@ -26,12 +26,12 @@ architecture tasks based on layers:
 
 - [pending]post services:-
     - [X]getPublishedPostsPreview
-    - []getAllPosts(author)
+    - [pending]getAllPosts(author)
     - [X]getPostById(with comments) 
-    - []createPost
-    - []updatePost
-    - []togglePublishedStatus
-    - []deletePost
+    - [X]createPost
+    - [X]updatePost
+    - [X]togglePublishedStatus
+    - [X]deletePost
 
 - [] comment services:-
     - []createComment
@@ -63,7 +63,7 @@ architecture tasks based on layers:
 - [X] indexRouter 
 - [X] authRouter
 - [X] usersRouter
-- [pending] postsRouter
+- [X] postsRouter
 - [pending] commentsRouter
 ## Controllers
 - [pending] authController
@@ -75,13 +75,13 @@ architecture tasks based on layers:
     - [X] getCurrentUser
     - [X] enableAuthorMode
 
-- [pending] postsController
+- [X] postsController
     - [X] getAllPosts
     - [X] getPostByid
-    - [pending] createPost
-    - [pending] togglePublishStatus
-    - [pending] updatePost
-    - [pending] deletePost
+    - [X] createPost
+    - [X] togglePublishStatus
+    - [X] updatePost
+    - [X] deletePost
 
 - [] commentsController
     - [] createComment
@@ -90,7 +90,7 @@ architecture tasks based on layers:
 
 ## Middleware
 - [X] isAuthenticatedjwt cerfication()
-- [] isAuthor(role check)
+- [pending] isAuthor(role check)
 - [] validation Middleware
 - [] centralized error handler
 
