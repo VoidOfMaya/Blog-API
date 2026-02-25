@@ -33,10 +33,10 @@ architecture tasks based on layers:
     - [X]togglePublishedStatus
     - [X]deletePost
 
-- [] comment services:-
-    - []createComment
-    - []updateComment
-    - []deleteComment
+- [X] comment services:-
+    - [X]createComment
+    - [X]updateComment
+    - [X]deleteComment
 
 ## Authentication
 - [X] Register logic (hash password)
