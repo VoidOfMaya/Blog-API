@@ -1,10 +1,19 @@
 import{
+    getPostsService,
     createpostSevice,
     publishPostSevice,
     editPostSevice,
     deletePostSevice
 } from './postSservices.js'
-
+async function getAllPosts(req, res) {
+    try{
+        const {id} = req.user
+        const result = await getPostsService(Number(id))
+        res.status(200).json({result})
+    }catch(err){
+        res.status(401).json({error: err})
+    }
+}
 async function createpost(req,res) {
     try{
         //data should provide a title and content and user id
@@ -52,6 +61,7 @@ async function deletePost(req,res) {
 }
 
 export {
+    getAllPosts,
     createpost,
     togglePublish,
     updatePost,

@@ -1,5 +1,11 @@
 import { prisma } from "../../lib/prisma.js";
 
+//get all posts
+async function getPostsService(id) {
+    return await prisma.post.findMany({
+        where:{userId: id}
+    })
+}
 //createpost
 async function createpostSevice(data) {
     await prisma.post.create({
@@ -44,6 +50,7 @@ async function deletePostSevice(id) {
     });
 }
 export{
+    getPostsService,
     createpostSevice,
     publishPostSevice,
     editPostSevice,

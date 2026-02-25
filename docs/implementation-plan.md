@@ -24,9 +24,9 @@ architecture tasks based on layers:
     - [X] getUserById
     - [X] getCurrentUser
 
-- [pending]post services:-
+- [X]post services:-
     - [X]getPublishedPostsPreview
-    - [pending]getAllPosts(author)
+    - [X]getAllPosts(author)
     - [X]getPostById(with comments) 
     - [X]createPost
     - [X]updatePost
