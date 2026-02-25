@@ -1,15 +1,21 @@
 import { Router } from "express";
+import{
+    createComment,
+    updateComment,
+    deleteComment
+} from './commentController.js'
 //thie rout is user only
 //can
 // create comment per postid through POST /post/:postId/comment
 // edit comment per post id through PUT /post/:postId/comment
 // delete comment per post id through DELTE /post/:postId/comment
-const commentRouter = Router();
-
-commentRouter.post('/comments',(req, res)=>{
-    res.json({messgae: 'comment router accessed!'})
-})
-
+const commentRouter = Router({mergeParams: true});
+//create comment,//takes userId, postId, content
+commentRouter.post('/', createComment)
+//edit comment, //takes postId, content
+commentRouter.put('/',updateComment)
+//delete comment,// takes commentId
+commentRouter.delete('/',deleteComment)
 export{
     commentRouter
 }
