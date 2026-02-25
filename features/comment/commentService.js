@@ -18,7 +18,7 @@ async function updateCommentService(id, content) {
     })
 }
 async function deleteCommentService(id) {
-    await prisma.comment.delete({
+    return await prisma.comment.delete({
         where: {id}
     })
 }

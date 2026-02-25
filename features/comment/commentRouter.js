@@ -15,7 +15,7 @@ commentRouter.post('/', createComment)
 //edit comment, //takes postId, content
 commentRouter.put('/:id',updateComment)
 //delete comment,// takes commentId
-commentRouter.delete('/',deleteComment)
+commentRouter.delete('/:id',deleteComment)
 export{
     commentRouter
 }
