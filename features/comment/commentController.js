@@ -10,8 +10,8 @@ async function createComment(req, res) {
       const{id}= req.user;
       const{content}= req.body
       const{postId}= req.params
-      const result = await createCommentService(Number(id), Number(postId), content);
-      res.status(201).json({result})
+      await createCommentService(Number(id), Number(postId), content);
+      res.status(201).json({message: 'Comment created successfully!'})
    }catch(err){
       console.log(err);
       res.status(500).json({error: err})
@@ -20,10 +20,14 @@ async function createComment(req, res) {
 async function updateComment(req, res) {
    try{
       //takes postId, content
-      const {commentId, content} = req.body
-      await updateCommentService(Number(commentId), content)
+
+      const {id} = req.params
+      const {content} = req.body
+      await updateCommentService(Number(id), content)
+
       res.status(201).json({message: 'Comment updated successfully'})
    }catch(err){
+      console.log(err)
       res.status(500).json({error: err})
    }   
  }

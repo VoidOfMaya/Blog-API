@@ -13,7 +13,7 @@ const commentRouter = Router({mergeParams: true});
 //create comment,//takes userId, postId, content
 commentRouter.post('/', createComment)
 //edit comment, //takes postId, content
-commentRouter.put('/',updateComment)
+commentRouter.put('/:id',updateComment)
 //delete comment,// takes commentId
 commentRouter.delete('/',deleteComment)
 export{
