@@ -1,7 +1,7 @@
 import { validationResult, matchedData } from "express-validator";
 import {registerUser, login} from './authServices.js';
 
-async function createUser(req, res, next){
+async function createUser(req, res){
     //handels validation
     const errors = validationResult(req);
     if(!errors.isEmpty()) return res.status(401).json({error: errors.array()})
@@ -23,8 +23,8 @@ async function userLogin(req, res) {
     const data = matchedData(req);
 
     try{
-        await login(data)  
-        res.status(200).json({message: 'user registered successfully'});      
+        const user = await login(data)  
+        res.status(200).json({user});      
     }catch(err){
         console.log(err)
         res.status(500).json({error: err})
@@ -33,6 +33,5 @@ async function userLogin(req, res) {
 }
 export{
     createUser,
-    logout,
     userLogin
 }
