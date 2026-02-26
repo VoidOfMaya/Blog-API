@@ -9,10 +9,11 @@ This API provides authentication and role-based access control for a blogging pl
 Authentication is handled using Passport (Local + JWT strategy).
 After login, users receive a JWT token which must be included in protected requests.
 
-* KEYNOTE: include JWT_KEY in every request for a protected rout
+* KEYNOTE: All protected routes require:
+           Authorization: Bearer <JWT_KEY>
 _____
-## Public resource: (public rout)
-### router pathes:
+## Public resource: (public route)
+### router paths:
 1. GET:/ (get all published posts)
 2. GET:/:id(get published post by id)
 ### Get all posts:
@@ -21,7 +22,7 @@ _____
 {
     "id": "number",
     "title":"string",
-    "publishedAt": "dateTime",
+    "publishedAt": "Date",
 }
 ```
 ### get post by id:
@@ -32,14 +33,14 @@ _____
     "id": "number",
     "title":"string",
     "content": "string",
-    "publishedAt": "datetime",
-    "updatedAt": "datetime",
+    "publishedAt": "Date",
+    "updatedAt": "Date",
     "comments[]": "a list of comment objects(read only)"
 }
 ```
 
-## Authentication resource: (public rout)
-### router pathes:
+## Authentication resource: (public route)
+### router paths:
 1. POST:/auth/register
 2. POST:/auth/login
 ### Register:-
@@ -51,7 +52,7 @@ _____
     "firstName": "string",
     "lastName": "string",
     "password": "string",
-    "confirmPaswword": "string"
+    "confirmPassword": "string"
 
 }
 ```
@@ -83,7 +84,8 @@ _____
 ```
 
 ## User Resource: (auth protected)
-### Router pathes:
+note: userId is derived from the JWT token
+### Router paths:
 1. GET:/ (gets current user info)
 2. PUT:/ (enables author mode)
 
@@ -105,8 +107,9 @@ _____
 ```
 
 ## Comment Resource: (auth protected)
-- note: comment router is nested within the indexRouter
+- note: -comment router is nested within the indexRouter
         route params are merged
+        -userId is derived from the JWT token
 ### Router pathes:
 1. create comment POST:/:postId/comment 
 2. update comment PUT:/:postId/comment/:id
@@ -115,11 +118,10 @@ _____
 ### Create comment:
 1. server expects:
 ```JSON
-{
-    "userId":"number",
-    "postId":"number", 
-    "content":"content"
-}
+"params"
+{"postId":"number"}
+
+{ "content":"string"}
 ```
 2.success response:
 ```JSON
@@ -128,10 +130,9 @@ _____
 ### Update comment:
 1. server expects:
 ```JSON
-{
-    "commentId":"number",
-    "content":"content"
-}
+"params"
+{"commentId":"number"},
+{"content":"string"}
 ```
 2.success response:
 ```JSON
@@ -140,10 +141,8 @@ _____
 ### Delete comment:
 1. server expects:
 ```JSON
-{
-    "commentId":"number",
-
-}
+"params"
+{"commentId":"number"}
 ```
 2.success response:
 ```JSON
@@ -151,6 +150,7 @@ _____
 ```
 
 ## Post Resource: (auth protected + access authorized for authors only):
+note: userId is derived from the JWT token
 ### router pathes:
 1. Get all posts GET: /All
 2. Create post   POST: /
@@ -176,7 +176,6 @@ _____
 1. server expects:
 ```JSON
 {
-    "userId":"number",
     "title": "string",
     "content":"string"
 }
@@ -188,6 +187,7 @@ _____
 ### Publish post:
 1. server expects:
 ```JSON
+"params"
 {"postId":"number"}
 ```
 2. success response:
@@ -197,11 +197,13 @@ _____
 ### Update post:
 1. server expects:
 ```JSON
+"params:"
+{  "postId":"number"}
+,
 {
-    "postId":"number",
     "title?": "String",
     "content?": "string"
-    
+   
 }
 ```
 2. success response:
@@ -211,9 +213,7 @@ _____
 ### Delete post:
 1. server expects:
 ```JSON
+"params:"
 {"postId":"number"}
 ```
-2. success response:
-```Js
-res.status(204);
-```
+2. success response: status 204 No Content
