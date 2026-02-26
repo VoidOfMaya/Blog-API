@@ -1,4 +1,8 @@
 # Blog-API
+## Live API:
+- you can access the deployed api here: [deployed-on-render](https://blog-api-vdtu.onrender.com)
+- for endpoint testing please checkout the [Documentation](./docs/API-docs.md)
+
 A RESTful API built as the backend service for a 3-part full-stack blog application.
 
 This API serves two separate frontend clients:
