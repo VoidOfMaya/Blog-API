@@ -19,6 +19,7 @@ async function getPublishedPostById(id) {
             title:true,
             content: true,
             publishedAt: true,
+            updatedAt: true,
             comments: true
         }
     })

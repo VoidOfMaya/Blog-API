@@ -10,13 +10,13 @@ import{
 async function getAllPosts(req, res) {
 
     const {id} = req.user
-    if (Number.isNaN(id))return res.status(401).json({error: 'Invalid user ID'})//checks that user id is a number    
+    if (!Number.isInteger(id))return res.status(401).json({error: 'Invalid user ID'})//checks that user id is a number    
     
     try{
         const result = await getPostsService(Number(id))
         res.status(200).json({result})
     }catch(err){
-        res.status(401).json({error: err})
+        res.status(500).json({error: err.message || 'Internal Server Error'})
     }
 }
 async function createpost(req,res) {
@@ -26,33 +26,33 @@ async function createpost(req,res) {
     const {title, content} = matchedData(req);
 
     const {id} = req.user
-    if (Number.isNaN(id))return res.status(401).json({error: 'Invalid user ID'})//checks that user id is a number  
+    if (!Number.isInteger(id))return res.status(401).json({error: 'Invalid user ID'})//checks that user id is a number  
 
     try{
         await createpostSevice({id, title, content});
         res.status(201).json({message: 'post created successfully'})
     }catch(err){
 
-        res.status(500).json({error: err})
+        res.status(500).json({error: err.message || 'Internal Server Error'})
     }
 }
 async function togglePublish(req,res) {
 
     const errors = validationResult(req);
-    if(!errors.isEmpty()) return res.status(401).json({error: errors.array()})
+    if(!errors.isEmpty()) return res.status(400).json({error: errors.array()})
     const {id} = matchedData(req);
     
     try{
         await publishPostSevice(Number(id))
         res.status(200).json({message: 'post published successfully!'})
     }catch(err){
-        res.status(500).json({error: err})
+        res.status(500).json({error: err.message || 'Internal Server Error'})
     }
 }
 async function updatePost(req, res) {
 
     const errors = validationResult(req);
-    if(!errors.isEmpty()) return res.status(401).json({error: errors.array()})
+    if(!errors.isEmpty()) return res.status(400).json({error: errors.array()})
     const {id, title, content} = matchedData(req);
 
     try{
@@ -62,20 +62,20 @@ async function updatePost(req, res) {
         res.status(200).json({message: 'post updated successfully!'})
     }catch(err){
         console.log(err)
-        res.status(500).json({error: err})
+        res.status(500).json({error: err.message || 'Internal Server Error'})
     }
 }
 async function deletePost(req,res) {
 
     const errors = validationResult(req);
-    if(!errors.isEmpty()) return res.status(401).json({error: errors.array()})
+    if(!errors.isEmpty()) return res.status(400).json({error: errors.array()})
     const {id} = matchedData(req);
 
     try{
         await deletePostSevice(Number(id));
-        res.status(204).json({message: 'post deleted successfully!'})
+        res.status(204).send()
     }catch(err){
-        res.status(500).json({error: err})
+        res.status(500).json({error: err.message || 'Internal Server Error'})
     }    
 }
 
