@@ -206,6 +206,7 @@ note: userId is derived from the JWT token
    
 }
 ```
+note: update post requires  psotid and one or both of  title and content !
 2. success response:
 ```JSON
 {"message": "post updated successfully"}

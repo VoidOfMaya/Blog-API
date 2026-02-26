@@ -28,7 +28,7 @@ The API handles authentication, authorization, validation, and data persistence.
 - Secure password hashing (bcrypt)
 - PostgreSQL database integration via Prisma
 
-## development noter:
+## development note:
  - #### [API-Documentaiton-and-use](./docs/API-docs.md)
  - #### [API-OVerview](./docs/general.md)
  - #### [implementation-plan](./docs/implementation-plan.md)  
