@@ -10,7 +10,7 @@ async function createUser(req, res){
     try{
         await registerUser(data);      
     }catch(err){
-        res.status(500).json({error: err})
+        res.status(500).json({error: err.message || 'Internal Server Error'})
     }
     res.status(201).json({message: "user registered successfully"});
 
@@ -27,7 +27,7 @@ async function userLogin(req, res) {
         res.status(200).json({user});      
     }catch(err){
         console.log(err)
-        res.status(500).json({error: err})
+        res.status(500).json({error: err.message || 'Internal Server Error'})
     }
 
 }

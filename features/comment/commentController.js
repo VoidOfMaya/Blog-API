@@ -12,7 +12,7 @@ async function createComment(req, res) {
    const data = matchedData(req)
 
    const{id}= req.user;
-   if(Number.isNaN(id)) return res.status(500).json({error: "Invalid user ID"})//this validates the id from req.user   
+   if(!Number.isInteger(id)) return res.status(500).json({error: "Invalid user ID"})//this validates the id from req.user   
    try{
       //takes userId, postId, content
       const{content, postId}= data
@@ -21,7 +21,7 @@ async function createComment(req, res) {
       res.status(201).json({message: 'Comment created successfully!'})
    }catch(err){
       console.log(err);
-      res.status(500).json({error: err})
+      res.status(500).json({error: err.message || 'Internal Server Error'})
    }
  }
 async function updateComment(req, res) {
@@ -36,7 +36,7 @@ async function updateComment(req, res) {
       res.status(201).json({message: 'Comment updated successfully'})
    }catch(err){
       console.log(err);
-      res.status(500).json({error: err})
+      res.status(500).json({error: err.message || 'Internal Server Error'})
    }   
  }
 async function deleteComment(req, res) {
@@ -50,7 +50,7 @@ async function deleteComment(req, res) {
       res.status(204).json({message: 'Comment deleted'})
    }catch(err){
       console.log(err);
-      res.status(500).json({error: err}) 
+      res.status(500).json({error: err.message || 'Internal Server Error'}) 
    }    
  }
 

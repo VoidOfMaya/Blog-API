@@ -4,7 +4,7 @@ async function getPosts(req, res) {
         const posts = await getPublishedPostsPreview();
         res.status(200).json({posts: posts})
     }catch(err){
-        res.status(500).json({error: err})
+        res.status(500).json({error: err.message || 'Internal Server Error'})
     }
 }
 async function getPostById(req, res) {
@@ -15,7 +15,7 @@ async function getPostById(req, res) {
         res.status(200).json({post: post})
     }catch(err){
         console.log(err);
-        res.status(500).json({error: err})
+        res.status(500).json({error: err.message || 'Internal Server Error'})
     }
 }
 export{
