@@ -14,8 +14,8 @@ After login, users receive a JWT token which must be included in protected reque
 _____
 ## Public resource: (public route)
 ### router paths:
-1. GET:/ (get all published posts)
-2. GET:/:id(get published post by id)
+1. get all published posts GET:/
+2. get single published post GET:/:id
 ### Get all posts:
 - success response:
 ```JSON
@@ -41,8 +41,8 @@ _____
 
 ## Authentication resource: (public route)
 ### router paths:
-1. POST:/auth/register
-2. POST:/auth/login
+1. register user POST:/auth/register
+2. log in user POST:/auth/login
 ### Register:-
 1. Register Route,POST/auth/register
 2. Server expects:
@@ -86,8 +86,8 @@ _____
 ## User Resource: (auth protected)
 note: userId is derived from the JWT token
 ### Router paths:
-1. GET:/ (gets current user info)
-2. PUT:/ (enables author mode)
+1. Gets current user GET:/
+2. Enables author mode PUT:/
 
 ### Get current user info
 - success response:
@@ -100,7 +100,7 @@ note: userId is derived from the JWT token
     "roleId": "number",
 }
 ```
-### Enabke author mode
+### Enable author mode
 - success response:
 ```JSON
 {"message": "User is now an author"}
