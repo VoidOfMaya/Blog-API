@@ -1,10 +1,14 @@
-import express from 'express'
+import express from 'express';
 import 'dotenv/config'
 import passport from 'passport';
 import { midware } from './features/middleWareOrchestrator.js';
-import {pipe} from './features/routerOrchestrator.js'
+import {pipe} from './features/routerOrchestrator.js';
+import cors from 'cors';
 
 const app = express();
+
+//enables all cores temporarily for testing
+app.use(cors());
 //parse req string to json
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
