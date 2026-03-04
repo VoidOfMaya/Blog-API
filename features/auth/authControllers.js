@@ -4,7 +4,7 @@ import {registerUser, login} from './authServices.js';
 async function createUser(req, res){
     //handels validation
     const errors = validationResult(req);
-    if(!errors.isEmpty()) return res.status(401).json({error: errors.array()})
+    if(!errors.isEmpty()) return res.status(400).json({error: errors.array()})
     const data = matchedData(req);
     
     try{
