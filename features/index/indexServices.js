@@ -22,6 +22,7 @@ async function getPublishedPostById(id) {
             content: true,
             publishedAt: true,
             updatedAt: true,
+            author: { select: {firstName: true, lastName: true}},
             comments:{
                 include:{
                     author:{ select:{firstName: true, lastName: true}}
