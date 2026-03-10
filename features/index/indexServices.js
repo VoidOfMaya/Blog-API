@@ -6,7 +6,9 @@ async function getPublishedPostsPreview() {
         select:{
             id: true,
             title:true,
+            content: true,
             publishedAt: true,
+            author: { select: {name: true}}
         }
     })
 }
@@ -20,7 +22,11 @@ async function getPublishedPostById(id) {
             content: true,
             publishedAt: true,
             updatedAt: true,
-            comments: true
+            comments:{
+                include:{
+                    author:{ select:{ name: true}}
+                }
+            }
         }
     })
 }

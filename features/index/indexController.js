@@ -3,7 +3,12 @@ import { validationResult, matchedData } from "express-validator";
 async function getPosts(req, res) {
     try{
         const posts = await getPublishedPostsPreview();
-        res.status(200).json({posts: posts})
+
+        res.status(200).json({posts: posts.map(post =>({
+                ...post,
+                content: post.content.slice(0,250)
+            })
+        )})
     }catch(err){
         res.status(500).json({error: err.message || 'Internal Server Error'})
     }

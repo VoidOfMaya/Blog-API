@@ -23,6 +23,10 @@ _____
     "id": "number",
     "title":"string",
     "publishedAt": "Date",
+    "content": "250char string",
+    "author":{
+        "name": "string",
+    }
 }
 ```
 ### get post by id:
@@ -35,7 +39,12 @@ _____
     "content": "string",
     "publishedAt": "Date",
     "updatedAt": "Date",
-    "comments[]": "a list of comment objects(read only)"
+    "comments": {
+        "comment": "comment object",
+        "author":{
+            "name": "string"
+        }
+    }
 }
 ```
 
